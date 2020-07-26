@@ -1,0 +1,153 @@
+.container-perfil {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.botoes-opcao-tempo {
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.container-perfil h2,
+.container-perfil h3 {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container-perfil b {
+  color: var(--corPrincipal);
+}
+
+.container-perfil ul {
+  list-style-type: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container-perfil li {
+  width: 500px;
+}
+
+.total-time {
+  margin-bottom: 2em;
+}
+
+.div-tempo-agrupado {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-totals {
+  margin-bottom: 2em;
+  width: 50%;
+  min-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-totals ul {
+  margin-bottom: .5em;
+  padding: 1em;
+  box-shadow: 0 0 1em;
+}
+
+.task-totals li {
+  padding: .5em;
+}
+
+.grafico {
+  min-width: 400px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-history {
+  display: grid;
+  grid-gap: .5em;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.task-history a {
+  width: 400px;
+  align-self: center;
+  justify-self: center;
+}
+
+.task-history a li {
+  color: black;
+}
+
+.each-history {
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2em;
+}
+
+.each-history li {
+  width: 100%;
+  padding: .5em;
+}
+
+@media (max-width: 800px) {
+
+  .container-perfil {
+    width: 95vw;
+  }
+
+
+  .botoes-opcao-tempo form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .botoes-opcao-tempo button {
+    width: 50vw;
+    padding: .5em;
+    align-self: center;
+    margin-bottom: .5em;
+  }
+
+  .div-tempo-agrupado {
+    width: 90vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .task-totals {
+    min-width: 90vw;
+    max-width: 95vw;
+  }
+
+  .task-totals li {
+    width: 80vw;
+  }
+
+  .grafico {
+    min-width: 90vw;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grafico img {
+    width: 85vw;
+  }
+
+  .task-history a {
+    width: 80vw;
+  }
+
+  .task-history li {
+    width: 80vw;
+  }
+
+
+}

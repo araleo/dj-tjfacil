@@ -1,0 +1,236 @@
+body {
+  background-color: var(--corEscura);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.divBarraTopo a {
+  color: var(--corClara);
+}
+
+.divBarraTopo a:visited {
+  color: var(--corClara);
+}
+
+.divBarraTopo #link-instrucoes {
+  text-align: right;
+}
+
+.divBarraTopo {
+  height: 5vh;
+  padding: 0 1vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 300;
+}
+
+
+.divComoUsar {
+  font-family: 'PT Sans', sans-serif;
+  color: var(--corClara);
+  border: 1px solid var(--corClara);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 1.2em;
+  display: none;
+}
+
+.divComoUsar #tit {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.divComoUsar ul {
+  list-style-position: inside;
+  list-style-type: circle;
+  margin-top: 20px;
+}
+
+.divComoUsar li {
+  margin-top: 20px;
+}
+
+.divComoUsar #tab {
+  margin-left: 25px;
+  margin-top: 0;
+}
+
+.divLogo {
+  height: 30vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.divLogo h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 88px;
+  color: var(--corClara);
+  margin-bottom: 10px;
+}
+
+#formBusca {
+  width: 80%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divBarraBusca {
+  background-color: white;
+  border-radius: 25px;
+  width: 80%;
+  max-width: 700px;
+  overflow: hidden;
+  padding: .75rem;
+}
+
+.divBarraBusca input[type="text"] {
+  width: 80%;
+  font-size: 1.1em;
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing: 2px;
+  padding: 5px;
+}
+
+.divBarraBusca input:focus {
+  outline: none;
+}
+
+.divBarraBusca input[type="submit"] {
+  text-transform: uppercase;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.divBarraBusca input[type="submit"] {
+  background-color: var(--corEscura);
+  color: var(--corClara);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+.divBarraBusca a:hover, a:active {
+  background-color: darkslategray;
+}
+
+.divBotoes,
+.divBotoesSuperiores,
+.divProcEletronico {
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 1.1em;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.blocoBotao {
+  padding: 1em;
+}
+
+.divBotoes input[type=radio],
+.divBotoesSuperiores input[type=radio],
+.divProcEletronico input[type=checkbox] {
+    display:none;
+}
+
+.divBotoes label,
+.divBotoesSuperiores label,
+.divProcEletronico label {
+  cursor: pointer;
+  color: var(--corClara);
+}
+
+.divBotoes input[type="radio"] + label:before,
+.divBotoesSuperiores input[type="radio"] + label:before,
+.divProcEletronico input[type="checkbox"] + label:before {
+  border: 1px solid #5D5C5C;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin: 0 0 0 0;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+  border-radius:4px;
+}
+
+.divBotoes input[type="radio"]:checked + label:before,
+.divBotoesSuperiores input[type="radio"]:checked + label:before,
+.divProcEletronico input[type="checkbox"]:checked + label:before {
+  background: #A0A0A0;
+  color: #FFF;
+  content: "\2713";
+  text-align: center;
+}
+
+.divBotoes input[type="radio"]:checked + label:after,
+.divBotoesSuperiores input[type="radio"]:checked + label:after,
+.divProcEletronico input[type="checkbox"]:checked + label:after {
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+
+  .divComoUsar #tab {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .divComoUsar {
+    text-align: justify;
+    font-size: 1em;
+  }
+
+  #formBusca {
+    width: 100%;
+  }
+
+  .divBarraBusca {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    padding: 0;
+    margin-bottom: 2em;
+    max-width: 550px;
+  }
+
+  .divBarraBusca input[type="text"] {
+    width: 100%;
+    padding: .5em;
+    height: 3em;
+  }
+
+  .divBarraBusca input[type="text"] {
+    font-size: .75em;
+  }
+
+  .divBarraBusca input[type="submit"] {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .divBotoes,
+  .divBotoesSuperiores {
+    width: 80%;
+    font-size: 1em;
+  }
+
+}

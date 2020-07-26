@@ -1,0 +1,30 @@
+{% extends 'jurimetria/layout.html' %}
+
+<!-- css -->
+{% block css %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'jurimetria/detail.css' %}">
+{% endblock %}
+
+
+<!-- conteudo -->
+{% block content %}
+
+  <div class="detail-content">
+
+    <!-- barra busca -->
+    {% include 'jurimetria/barra-busca.html' %}
+
+    <div class="detail-cabecalho">
+      <h1>Processo nº: {{ sentenca.numero }}</h1>
+      <h2>{{ sentenca.vara }}</h2>
+      <h3>Categoria: {{ sentenca.tipo }}</h3>
+    </div>
+
+    <div class="detail-sentenca">
+      <pre>{{ sentenca.texto }}</pre>
+    </div>
+
+  </div>
+
+{% endblock %}

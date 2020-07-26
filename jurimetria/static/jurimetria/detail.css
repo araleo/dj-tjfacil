@@ -1,0 +1,15 @@
+.detail-content {
+  width: 90vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--corClara);
+}
+
+.detail-cabecalho {
+  margin: 3em auto 4em;
+  line-height: 1.6;
+}
+
+.detail-sentenca pre{
+  white-space: pre-wrap;
+}

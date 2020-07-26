@@ -1,0 +1,12 @@
+<div class="result-search">
+  <form action="{% url 'jurimetria:result' %}" method="post">{% csrf_token %}
+    <div class="result-search-query">
+      <input type="text" name="query" id="query" placeholder="Busca">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="result-search-filtros">
+      {% include 'jurimetria/select-vara.html' %}
+      {% include 'jurimetria/select-tipo.html' %}
+    </div>
+  </form>
+</div>

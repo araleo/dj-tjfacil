@@ -1,0 +1,114 @@
+{% extends 'timekeep/layout.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'timekeep/index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+  <h1>Timekeep de {{ user.username }}</h1>
+
+  <div class="links-topo">
+      <a href="{% url 'tj-timekeep:perfil' %}">Meu perfil</a>
+  </div>
+
+    <!-- inicio formulario nova task -->
+    <div class="create-task">
+        <form method="post">
+          {% csrf_token %}
+          <div class="upper-task-form">
+
+            {{ form.task.errors }}
+            {{ form.task }}
+
+            {{ form.important.errors }}
+            <label for="{{ form.important.id_for_label }}">Importante</label>
+            {{ form.important }}
+
+            <button type="submit" name="button" id="botao-save-task">Salvar</button>
+          </div>
+
+          <div class="lower-task-form">
+              {{ form.description.errors }}
+              {{ form.description }}
+          </div>
+
+        </form>
+    </div>
+    <h2>{{ error }}</h2>
+    <!-- fim formulario nova task -->
+
+    <!-- inicio lista de tasks -->
+    <div class="list-tasks">
+        <ul>
+
+        {% for task in tasks %}
+        <!-- cor do fundo de cada task -->
+        <div class="each-task" id="{{ task.id }}"
+            {% if task.start and not task.pause_begin %}
+                style="background-color: #80A1C1;"
+            {% elif task.pause_begin %}
+                style="background-color: #FFE28B;"
+            {% endif %}
+        >
+            <div class="upper-task-div">
+                <!-- botao excluir task -->
+                <form class="" action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="task_pk" class="hidden-input" value="{{ task.id }}">
+                    <button type="submit" name="botaoexcluir" id="botao-excluir-{{ task.id }}">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </form>
+
+                <!-- dados task inicio -->
+                {% if task.important %} <b> {% endif %}
+                <li>{{ task.task }}</li>
+                {% if task.important %} </b> {% endif %}
+
+                <form class="" action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="task_pk" class="hidden-input" value="{{ task.id }}">
+                    {% if not task.start %}
+                        <button type="submit" name="botaoinicio" id="botao-inicio-{{ task.id }}">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    {% else %}
+                        {% if not task.pause_begin %}
+                        <button type="submit" name="botaopause" id="botao-pause-{{ task.id }}">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        {% elif task.pause_begin %}
+                        <button type="submit" name="botaounpause" id="botao-unpause-{{ task.id }}">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        {% endif %}
+                        <button type="submit" name="botaocompletar" id="botao-completar-{{ task.id }}">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    {% endif %}
+                </form>
+            </div>
+
+            {% if task.description %}
+            <div class="lower-task-div">
+                <li>{{ task.description }}</li>
+            </div>
+            {% endif %}
+            <!-- dados task fim -->
+
+        </div>
+        {% endfor %}
+
+        </ul>
+    </div>
+    <!-- fim lista de tasks -->
+
+</div>
+
+
+{% endblock %}

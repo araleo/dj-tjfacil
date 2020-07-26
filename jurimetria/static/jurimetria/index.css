@@ -1,0 +1,77 @@
+/*
+font-family: 'Noto Sans JP', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+*/
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 1.3em;
+  color: var(--corClara);
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.index-content {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.index-search {
+  margin-top: auto;
+  width: 30vw;
+  min-width: 300px;
+  margin-bottom: 4em;
+}
+
+.index-search form {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-search form input[type=text] {
+  padding: .7em;
+  border: .5px solid black;
+  border-radius: 5px;
+  margin-bottom: .5em;
+}
+
+.index-search .selects {
+  padding: .5em;
+  margin-bottom: .5em;
+}
+
+.index-search form button {
+  padding: .5em;
+  background-color: lightgrey;
+}
+
+.mensagem-erro {
+  color: var(--corClara);
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .index-content {
+    height: 50vh;
+  }
+
+  .index-search {
+    width: 90vw;
+    margin-bottom: 2em;
+  }
+
+}

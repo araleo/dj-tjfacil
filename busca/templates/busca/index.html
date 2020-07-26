@@ -1,0 +1,60 @@
+{% extends 'busca/layout.html' %}
+
+{% block content %}
+
+<div class="divBarraTopo">
+  <a href="#" id="link-menu">Menu</a>
+  <a href="#" id="link-instrucoes">Como utilizar</a>
+</div>
+
+{% include 'busca/divcomousar.html' %}
+
+{% include 'menu/menu.html' %}
+
+<div class="divLogo" id="divLogo">
+  <h1>TJFácil</h1>
+</div>
+
+<form id="formBusca" method="post" target="_blank">{% csrf_token %}
+  <div class="divBarraBusca">
+      <input type="text" name="busca" id="barraBusca" placeholder=" Número do processo ou sigla do Tribunal">
+      <input type="submit" value="Busca">
+  </div>
+
+  <div class="divBotoes">
+    <div class="blocoBotao">
+      <input type="radio" value="primeira" name="instancia" id="grau_1">
+      <label for="grau_1"> 1ª Instância</label>
+    </div>
+    <div class="blocoBotao">
+      <input type="radio" value="segunda" name="instancia" id="grau_2">
+      <label for="grau_2"> 2ª Instância</label>
+    </div>
+  </div>
+
+  <div class="divBotoesSuperiores">
+    <div class="blocoBotao">
+      <input type="radio" value="STJ" name="instancia" id="stj">
+      <label for="stj"> STJ</label>
+    </div>
+    <div class="blocoBotao">
+      <input type="radio" value="STF" name="instancia" id="stf">
+      <label for="stf"> STF</label>
+    </div>
+    <div class="blocoBotao">
+      <input type="radio" value="TST" name="instancia" id="tst">
+      <label for="tst"> TST</label>
+    </div>
+  </div>
+
+  <div class="divProcEletronico">
+    <div class="blocoBotao">
+      <input type="checkbox" name="eproc" id="eproc" value="eletronico">
+      <label for="eproc"> Processo eletrônico</label>
+    </div>
+
+  </div>
+</form>
+
+
+{% endblock %}

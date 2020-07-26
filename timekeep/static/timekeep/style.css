@@ -1,0 +1,101 @@
+/*
+font-family: 'Montserrat', sans-serif;  // textos
+font-family: 'Quicksand', sans-serif;   // titulos
+font-family: 'Raleway', sans-serif;     // logos
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+:root {
+  --corPrincipal: #80A1C1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--corPrincipal);
+}
+
+button {
+  padding: .5em;
+}
+
+.barra-topo {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+.divMenu {
+  align-self: flex-start;
+}
+
+.divMenu a {
+  text-decoration: none;
+}
+
+.divMenu a:visited {
+  text-decoration: none;
+}
+
+.divMenu ul {
+  list-style-type: none;
+}
+
+.divMenu li {
+  padding: .75em;
+  float: left;
+}
+
+.barra-topo button,
+#button-change-details {
+  background-color: rgba(0,0,0,0);
+  border: 0px;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: var(--corPrincipal);
+}
+
+h1, h2, h3 {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: var(--corPrincipal);
+  margin-bottom: 1em;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario form ul {
+  display: none;
+}
+
+.formulario .helptext {
+  display: none;
+}
+
+.links-topo {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  font-size: 1.2em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}

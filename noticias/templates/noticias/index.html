@@ -1,0 +1,48 @@
+{% extends 'noticias/layout.html' %}
+
+<!-- conteudo -->
+{% block content %}
+
+<div class="divBusca" id="divBusca" style="display: none;">
+  <h2>Busca por notícias</h2>
+  <form class="form-busca" action="#" method="post">{% csrf_token %}
+    <input type="text" name="query" value="">
+    <select class="selects" name="select-tipo">
+      <option value="criminal">Criminal</option>
+      <option value="tributario">Tributário</option>
+      <option value="stf">Supremo</option>
+      <option value="todos">Todos</option>
+    </select>
+    Data mínima: <input type="date" name="data-inicio">
+    Data máxima: <input type="date" name="data-fim">
+    <button type="submit" name="button">Buscar</button>
+  </form>
+</div>
+
+<h1>Notícias</h1>
+
+<div class="noticias">
+  {% for tipo, datas in noticias.items %}
+    <div class="noticias-tipo">
+      <h3>{{ tipo | title }}</h3>
+      {% for data, portais in datas.items %}
+        <h4>{{ data }}</h4>
+        {% for portal, news in portais.items %}
+          <h4>{{ portal }}</h4>
+          {% for noticia in news %}
+            <a href="{{ noticia.link }}" target="_blank">
+              <div class="cada-noticia">
+                  <h5>{{ noticia.titulo }}</h5>
+                  {% if noticia.descricao %}
+                    <p>{{ noticia.descricao }}</p>
+                  {% endif %}
+              </div>
+            </a>
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

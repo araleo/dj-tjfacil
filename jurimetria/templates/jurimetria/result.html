@@ -1,0 +1,46 @@
+{% extends 'jurimetria/layout.html' %}
+
+<!-- css -->
+{% block css %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'jurimetria/result.css' %}">
+{% endblock %}
+
+
+<!-- conteudo -->
+{% block content %}
+  <div class="result-content">
+
+    <!-- barra busca -->
+    {% include 'jurimetria/barra-busca.html' %}
+
+
+    <div class="resultados">
+      <!-- total de hits e porcentagens -->
+      <div class="estatisticas">
+        <h2>{{ query }}</h2>
+        <h3><pre>{{ vals }}</pre></h3>
+      </div>
+
+      <!-- cards sentenças -->
+      {% if sentencas %}
+      <div class="sentencas">
+        <h3>Sentenças {{ tipo }}:</h3>
+        <ul>
+          {% for sentenca in sentencas %}
+          <a href="{% url 'jurimetria:detail' sentenca.id %}">
+            <div class="cada-sentenca">
+              <li>{{ sentenca.decoded|slice:"750:1300" }}</li>
+            </div>
+          </a>
+          {% endfor %}
+        </ul>
+      </div>
+      {% else %}
+        <p>Não foi encontrada nenhuma sentença com o tipo pesquisado.</p>
+      {% endif %}
+
+    </div>
+
+  </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'timekeep/layout.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'timekeep/detalhe.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="links-topo" id="links-topo-detalhe">
+    <a href="{% url 'tj-timekeep:index' %}">Home</a>
+    <a href="{% url 'tj-timekeep:perfil' %}">Perfil</a>
+</div>
+
+<div class="container-detalhe">
+
+    <div class="detail-task">
+        <ul>
+            <li><h2>{{ task.task }}</h2></li>
+            {% if task.description %}<li>{{ task.description }}</li>{% endif %}
+            <li>Início: {{ task.start }}</li>
+            <li>Fim: {{ task.completed }}</li>
+            <li>Duração: {{ task.elapsed_str }}</li>
+        </ul>
+        <button type="button" id="button-change-details">Alterar detalhes</button>
+    </div>
+
+    <div class="update-task" id="update-task-div">
+        <form method="post">
+          {% csrf_token %}
+          <div class="upper-task-form">
+
+            {{ form.task.errors }}
+            {{ form.task }}
+
+            {{ form.important.errors }}
+            <label for="{{ form.important.id_for_label }}">Importante</label>
+            {{ form.important }}
+
+            <button type="submit" name="button" id="botao-save-task">Salvar</button>
+          </div>
+
+          <div class="lower-task-form">
+              {{ form.description.errors }}
+              {{ form.description }}
+          </div>
+
+        </form>
+    </div>
+    <h2>{{ error }}</h2>
+
+</div>
+
+{% endblock %}

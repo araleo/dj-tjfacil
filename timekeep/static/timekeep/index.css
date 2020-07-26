@@ -1,0 +1,122 @@
+.container {
+  margin: 0 auto;
+  width: 80vw;
+  max-width: 1600px;
+  display: block;
+}
+
+.create-task form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.create-task input[type=text] {
+  padding: 1em;
+}
+
+.upper-task-form {
+  width: 100%;
+}
+
+.lower-task-form {
+  width: 100%;
+}
+
+#id_description {
+  width: 90%;
+}
+
+.create-task form input {
+  margin: 0px 20px;
+}
+
+#id_title {
+  width: 25em;
+}
+
+.list-tasks ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.each-task {
+  margin-bottom: 10px;
+  padding: 5px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.each-task div {
+  padding: 2px;
+}
+
+.upper-task-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.lower-task-div {
+  margin: 2px auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hidden-input {
+  display: none;
+}
+
+@media (max-width: 800px) {
+
+  .create-task form {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .create-task input[type=text] {
+    padding: .75em;
+  }
+
+  .create-task input[type=checkbox] {
+    margin-right: 2em;
+  }
+
+  .upper-task-form {
+    width: 100%;
+  }
+
+  .lower-task-form {
+    width: 100%;
+  }
+
+  #id_description {
+    width: 90%;
+  }
+
+  .create-task form input {
+    margin: 0;
+  }
+
+  #id_title {
+    width: 90%;
+  }
+
+  .each-task {
+    width: 90vw;
+  }
+
+  .each-task button {
+    padding: 0;
+  }
+
+}

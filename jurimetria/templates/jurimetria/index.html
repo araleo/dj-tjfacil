@@ -1,0 +1,34 @@
+{% extends 'jurimetria/layout.html' %}
+
+<!-- css -->
+{% block css %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'jurimetria/index.css' %}">
+{% endblock %}
+
+
+<!-- conteudo -->
+{% block content %}
+
+  <div class="index-content">
+    <!-- form busca -->
+    <div class="index-search">
+      <h1>Jurimetria</h1>
+      <form action="{% url 'jurimetria:result' %}" method="post">{% csrf_token %}
+        <input type="text" name="query" id="query" placeholder="Busca">
+        {% include 'jurimetria/select-vara.html' %}
+        {% include 'jurimetria/select-tipo.html' %}
+        <button type="submit">Pesquisar</button>
+      </form>
+    </div>
+  </div>
+
+  {% if erro %}
+    <p class="mensagem-erro">{{ erro }}</p>
+  {% endif %}
+
+  <a href="https://tjfacil.wordpress.com/2020/07/20/classificando-sentencas-criminais-utilizando-aprendizado-de-maquina/" target="_blank">
+    <h2>Como funciona</h2>
+  </a>
+
+{% endblock %}

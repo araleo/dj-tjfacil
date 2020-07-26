@@ -1,0 +1,20 @@
+{% extends 'timekeep/layout.html' %}
+
+{% block top %}
+  <a href="{% url 'tj-timekeep:loginuser' %}">Login</a>
+{% endblock %}
+
+
+{% block content %}
+  <h1>Register</h1>
+
+  <div class="formulario">
+    <form class="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" name="button">Sign up</button>
+    </form>
+  </div>
+
+  <h2>{{ error }}</h2>
+{% endblock %}

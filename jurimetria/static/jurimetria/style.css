@@ -1,0 +1,73 @@
+* {
+  font-family: 'Ubuntu', sans-serif;
+  list-style-type: none;
+}
+
+body {
+  background-color: var(--corEscura);
+  display: flex;
+  flex-direction: column;
+}
+
+#link-menu {
+  padding: .5em;
+  color: var(--corClara);
+  text-decoration: none;
+  max-width: 15em;
+}
+
+.result-search {
+  display: flex;
+  margin: 1em auto 2em;
+  padding: .25em;
+}
+
+.result-search-query {
+  display: inline;
+}
+
+.result-search-filtros {
+  display: inline;
+}
+
+.result-search form input[type=text] {
+  padding: .3em;
+  border: .5px solid black;
+  border-radius: 5px;
+  max-width: 500px;
+  margin-right: 1em;
+}
+
+.result-search button {
+  background-color: lightgrey;
+  padding: .3em 2em;
+  border-radius: 5px;
+}
+
+.result-search .selects {
+  padding: .2em;
+  margin-bottom: .75em;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .result-search {
+    margin: .5em auto 1em;
+    flex-direction: column;
+  }
+
+  .result-search-query {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5em;
+  }
+
+  .result-search form input[type=text] {
+    max-width: 200px;
+  }
+
+  .result-search button {
+    padding: .25em 2em;
+  }
+
+}

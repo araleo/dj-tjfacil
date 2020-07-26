@@ -1,0 +1,68 @@
+#links-topo-detalhe a {
+  padding: 1em;
+  margin: 1em;
+}
+
+.detail-task {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5em;
+}
+
+.detail-task ul {
+  margin-bottom: 2em;
+}
+
+.detail-task b {
+  color: var(--corPrincipal)
+}
+
+.detail-task li {
+  text-align: center;
+  list-style-type: none;
+  margin-bottom: .5em;
+}
+
+#button-change-details {
+  max-width: 200px;
+  margin: 0 auto 2em;
+}
+
+.update-task {
+  display: none;
+}
+
+.update-task form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.update-task input[type=text] {
+  padding: 1em;
+}
+
+.update-task form input {
+  margin: 0px 20px;
+}
+
+
+@media (max-width: 800px) {
+
+  .update-task form {
+    width: 90vw;
+  }
+
+  .update-task input[type=text] {
+    padding: .75em;
+  }
+
+  .upper-task-form {
+    text-align: center;
+  }
+
+}

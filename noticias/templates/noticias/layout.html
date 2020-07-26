@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700|Merriweather:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;900&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'master/master.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'noticias/style.css' %}">
+  <script type="text/javascript" src="{% static 'noticias/script.js' %}"></script>
+  <script src="https://kit.fontawesome.com/1625b5a72a.js" crossorigin="anonymous"></script>
+  <title>Notícias</title>
+</head>
+<body>
+
+  <div class="topo">
+    <a href="#" id="link-menu">Menu</a>
+    <a href="#" id="link-busca">Busca</a>
+  </div>
+
+  {% include 'menu/menu.html' %}
+
+  {% block content %}{% endblock %}
+</body>

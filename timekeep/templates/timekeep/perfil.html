@@ -1,0 +1,89 @@
+{% extends 'timekeep/layout.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'timekeep/perfil.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<h1>Bem-vindo, {{ user.username }}</h1>
+
+<div class="links-topo">
+    <a href="{% url 'tj-timekeep:index' %}">Home</a>
+</div>
+
+<div class="container-perfil">
+
+    <!-- botoes de opcao de tempo para exibicao das tasks -->
+    <div class="botoes-opcao-tempo">
+        <form class="" action="" method="post">
+            {% csrf_token %}
+            <button type="submit" name="botao-inicio">Desde o início</button>
+            <button type="submit" name="botao-30d">Últimos 30 dias</button>
+            <button type="submit" name="botao-7d">Últimos 7 dias</button>
+            <button type="submit" name="botao-24h">Hoje</button>
+        </form>
+    </div>
+    <!-- fim botoes -->
+
+    {% if tasks %}
+
+    <!-- tempo total -->
+    <div class="total-time">
+        <h2>Tempo total</h2>
+        <h3>{{ total_time }}</h3>
+    </div>
+    <!-- fim tempo total -->
+
+    <!-- tempo total e grafico -->
+    <h2>Tempo total agrupado</h2>
+    <div class="div-tempo-agrupado">
+        <!-- tempo total agrupado por task -->
+        <div class="task-totals">
+            <ul>
+                {% for task, time in totals.items %}
+                <li><b>{{ task }}</b>: {{ time }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- fim tempo total agrupado -->
+
+        <!-- grafico -->
+        <div class="grafico">
+            <img src='data:image/png;base64,{{ grafico }}'/>
+            <img src='data:image/png;base64,{{ grafico_lin }}'/>
+        </div>
+        <!-- fim do grafico -->
+    </div>
+    <!-- fim tempo total e grafico -->
+
+    <!-- historico detalhado de todas as tasks no periodo selecionado -->
+    <h2>Tarefas detalhadas</h2>
+    <ul>
+    <div class="task-history">
+        {% for task in tasks %}
+        <a href="{% url 'tj-timekeep:detalhe' task.id %}">
+            <div class="each-history" id="{{ task.id }}">
+                <li><b>{{ task.task }}</b></li>
+                {% if task.description %}<li>{{ task.description }}</li>{% endif %}
+                <li>Início: {{ task.start }}</li>
+                <li>Fim: {{ task.completed }}</li>
+                <li>Duração: {{ task.elapsed_str }}</li>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    </ul>
+    <!-- fim do historico -->
+
+    {% else %}
+
+    <h2>Você não completou nenhuma tarefa no período escolhido.</h2>
+
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
